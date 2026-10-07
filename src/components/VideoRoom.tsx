@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -45,21 +44,35 @@ const VideoRoomPage = ({ roomId }: { roomId: string }) => {
         if (cancelled || !containerRef.current) return;
 
         const instance = ZegoUIKitPrebuilt.create(kitToken);
+
         zp = instance;
         zpRef.current = instance;
 
         instance.joinRoom({
           container: containerRef.current,
+
           scenario: {
             mode: ZegoUIKitPrebuilt.OneONoneCall,
           },
+
           showPreJoinView: false,
           showTextChat: true,
           maxUsers: 2,
+
           turnOnCameraWhenJoining: true,
           turnOnMicrophoneWhenJoining: true,
+
           showMyCameraToggleButton: true,
           showMyMicrophoneToggleButton: true,
+
+          // Keep the bottom controls visible
+          autoHideFooter: false,
+
+          // Show audio/video settings button
+          showAudioVideoSettingsButton: true,
+
+          // Show more options button
+          showMoreButton: true,
         });
       } catch (error) {
         if (!cancelled) {
@@ -83,11 +96,11 @@ const VideoRoomPage = ({ roomId }: { roomId: string }) => {
   }, [roomId]);
 
   return (
-   <div
-    ref={containerRef}
-    className="h-full w-full min-h-0"
-    style={{ minHeight: 0 }}
-  />
+    <div
+      ref={containerRef}
+      className="h-full w-full min-h-0"
+      style={{ minHeight: 0 }}
+    />
   );
 };
 

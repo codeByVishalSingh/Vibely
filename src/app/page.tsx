@@ -314,7 +314,7 @@ export default function Home() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.35 }}
-              className="fixed inset-0 z-20 flex flex-col bg-[#080810]"
+              className="fixed inset-0 z-20 flex h-[100dvh] flex-col overflow-hidden bg-[#080810]"
             >
               <header className="flex shrink-0 items-center justify-between border-b border-white/10 bg-black/40 px-4 py-3 backdrop-blur-xl sm:px-6">
                 <div className="flex items-center gap-3">
@@ -344,16 +344,16 @@ export default function Home() {
                 </motion.button>
               </header>
 
-              <div className="relative min-h-0 min-w-0 flex-1 overflow-hidden p-2 sm:p-4">
+              <div className="relative min-h-0 min-w-0 flex-1 overflow-hidden p-1 sm:p-4">
                 <div className="h-full w-full overflow-hidden rounded-2xl border border-white/10 bg-[#171725] sm:rounded-3xl">
                   <VideoRoomPage roomId={roomId} />
                 </div>
               </div>
 
-              <div className="flex shrink-0 items-center justify-center gap-2 border-t border-white/5 px-4 py-3 text-xs text-zinc-500">
-                <MessageCircle size={14} />
-                Keep it friendly. Respect everyone you meet.
-              </div>
+            <div className="hidden shrink-0 items-center justify-center gap-2 border-t border-white/5 px-4 py-3 text-xs text-zinc-500 sm:flex">
+  <MessageCircle size={14} />
+  Keep it friendly. Respect everyone you meet.
+</div>
             </motion.section>
           )}
         </AnimatePresence>
